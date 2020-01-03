@@ -2,8 +2,10 @@ package com.example.edp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,9 +18,13 @@ import java.io.InputStreamReader;
 
 public class NeutralSelected extends AppCompatActivity {
 
-    private static final String TEXT_TO_PRONOUNCE= "text.txt";
+    //private static final String TEXT_TO_PRONOUNCE = "text.txt";
 
     EditText mEditText;
+
+    Button btn;
+    String txt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +32,31 @@ public class NeutralSelected extends AppCompatActivity {
         setContentView(R.layout.activity_neutral_selected);
 
 
-    mEditText= findViewById(R.id.edit_text);
+        btn.findViewById(R.id.button_send);
+        mEditText = findViewById(R.id.edit_text);
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intenta = new Intent(NeutralSelected.this, Server.class);
+                txt = mEditText.getText().toString();
+                intenta.putExtra("Value", txt);
+                startActivity(intenta);
+
+            }
+        });
     }
+}
 
-    public void save (View v){
+    /*public void save(View v) {
         String text = mEditText.getText().toString();
-        FileOutputStream fos= null;
+        FileOutputStream fos = null;
 
-        try{
-            fos=openFileOutput(TEXT_TO_PRONOUNCE,MODE_PRIVATE);
+        try {
+            fos = openFileOutput(TEXT_TO_PRONOUNCE, MODE_PRIVATE);
             fos.write(text.getBytes());
-            Toast.makeText(this,"Saved to"+getFilesDir()+"/"+TEXT_TO_PRONOUNCE,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Saved to" + getFilesDir() + "/" + TEXT_TO_PRONOUNCE, Toast.LENGTH_LONG).show();
 
             mEditText.getText().clear();
 
@@ -46,30 +65,30 @@ public class NeutralSelected extends AppCompatActivity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally{
-            if (fos!=null){
-                try{
+        } finally {
+            if (fos != null) {
+                try {
                     fos.close();
 
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
 
     }
-    public void load(View v){
-        FileInputStream fis=null;
+
+    public void load(View v) {
+        FileInputStream fis = null;
 
         try {
-            fis =openFileInput(TEXT_TO_PRONOUNCE);
-            InputStreamReader isr =new InputStreamReader(fis);
-            BufferedReader br= new BufferedReader(isr);
-            StringBuilder sb= new StringBuilder();
+            fis = openFileInput(TEXT_TO_PRONOUNCE);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
             String text;
 
-            while ((text = br.readLine())!=null) {
+            while ((text = br.readLine()) != null) {
                 sb.append(text).append("\n");
 
 
@@ -80,18 +99,24 @@ public class NeutralSelected extends AppCompatActivity {
             e1.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally{
-            if (fis!=null){
-                try{
+        } finally {
+            if (fis != null) {
+                try {
                     fis.close();
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
         }
-    }
+    }*/
 
 
-}
+    //now create an intend to call the function serve to server
+
+    /*public void Send(View V) {
+        SendToServer sendtoserver = new SendToServer();
+        sendtoserver.execute(mEditText.getText().toString());
+
+
+    }*/

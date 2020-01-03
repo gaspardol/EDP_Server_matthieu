@@ -1,17 +1,13 @@
 package com.example.edp;
 
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class SendToServer  extends AsyncTask<String, Void, Void> {
+public class MessageSender extends AsyncTask<String, Void, Void> {
     Socket s;
     DataOutputStream dos;
     PrintWriter pw;

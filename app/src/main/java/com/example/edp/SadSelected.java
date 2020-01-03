@@ -3,24 +3,21 @@ package com.example.edp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class SadSelected extends AppCompatActivity {
 
-    private static final String TEXT_TO_PRONOUNCE = "text.txt";
+    //private static final String TEXT_TO_PRONOUNCE = "text.txt";
 
     EditText mEditText;
+    Button btn;
+    String txt;
+
 
 
     @Override
@@ -28,10 +25,25 @@ public class SadSelected extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sad_selected);
 
+        btn=findViewById(R.id.button_send);
         mEditText = findViewById(R.id.edit_text);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(SadSelected.this, Server.class);
+                txt=mEditText.getText().toString();
+                intent.putExtra("Value",txt);
+                startActivity(intent);
+
+                finish();
+            }
+        });
     }
 
-    public void save(View v) {
+}
+
+    /*public void save(View v) {
         String text = mEditText.getText().toString();
         FileOutputStream fos = null;
 
@@ -101,6 +113,6 @@ public class SadSelected extends AppCompatActivity {
         sendtoserver.execute(mEditText.getText().toString());
 
 
-    }
-}
+    }*/
+
 

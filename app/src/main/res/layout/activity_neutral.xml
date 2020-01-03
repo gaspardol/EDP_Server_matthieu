@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SadSelected">
+    tools:context=".Neutral">
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your text here"
@@ -21,16 +21,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_text"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="8dp"
         android:onClick="save"
         android:text="Say it"
         app:layout_constraintBottom_toTopOf="@+id/button_load"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text"
-        app:layout_constraintVertical_bias="0.258"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.171"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -38,14 +38,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_text"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="112dp"
         android:onClick="load"
         android:text="Load back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
