@@ -12,6 +12,7 @@ import android.view.View;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -34,7 +35,7 @@ public class PlaySentence extends AppCompatActivity {
     //socket variables
     public Socket mySocket;
     private int SERVERPORT = 7800;
-    private static final String SERVER_IP = "192.168.1.16";
+    private static final String SERVER_IP = "192.168.232.2";
 
     String debugStr;
     String str1;
@@ -76,7 +77,8 @@ public class PlaySentence extends AppCompatActivity {
 
                 try {
                     //creates buffer to hold incoming audio data
-                    byte [] audioBuffer = new byte[4096];
+
+                    byte [] audioBuffer = new byte[8192];
 
                     //creates input stream readers to read incoming data
                     BufferedInputStream myBis = new BufferedInputStream(mySocket.getInputStream());

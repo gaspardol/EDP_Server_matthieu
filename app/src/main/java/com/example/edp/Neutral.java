@@ -26,7 +26,7 @@ public class Neutral extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(Neutral.this, Server.class);
+                Intent intent =new Intent(Neutral.this, MessageSender2.class);
                 txt=mEditText.getText().toString();
                 intent.putExtra("Value",txt);
                 startActivity(intent);
