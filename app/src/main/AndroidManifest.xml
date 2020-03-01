@@ -13,24 +13,14 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@android:style/Theme.Light"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".Play"
-            android:label="@string/title_activity_play"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".MessageSender2" />
-        <activity android:name=".PlaySentence" />
-        <activity android:name=".Neutral" />
-        <activity android:name=".Server" />
-        <activity android:name=".NeutralSelected" />
-        <activity android:name=".HappySelected" />
-        <activity android:name=".SadSelected" />
-        <activity android:name=".MessageSender" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Play"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -41,17 +41,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
     public void openSadSelected(){
-        Intent intent1 = new Intent(this, SadSelected.class);
+        Intent intent1 = new Intent(this, Play.class);
         startActivity(intent1);
 
     }
     public void openHappySelected(){
-        Intent intent2 =new Intent(this, HappySelected.class);
+        Intent intent2 =new Intent(this, Play.class);
         startActivity(intent2);
 
     }
     public void openNeutralSelected(){
-        Intent intent3= new Intent (this, MessageSender2.class);
+        Intent intent3= new Intent (this, Play.class);
         startActivity(intent3);
 
     }

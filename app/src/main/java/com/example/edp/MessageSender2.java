@@ -59,7 +59,7 @@ public class MessageSender2 extends AppCompatActivity implements View.OnClickLis
 
                 try {
 
-                    Socket s = new Socket("192.168.82.163", 9002);
+                    Socket s = new Socket("146.169.165.58", 9002);
 
                     OutputStream out = s.getOutputStream();
 
