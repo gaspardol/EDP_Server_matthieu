@@ -36,44 +36,74 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-        Button buttonSend = (Button) findViewById(R.id.button4);
         mEditTextSendMessage = (EditText) findViewById(R.id.edt_send_message);
+        Button buttonSend = (Button) findViewById(R.id.button4);
         buttonSend.setOnClickListener((View.OnClickListener) this);
+        Button button3Send = (Button) findViewById(R.id.button3);
+        button3Send.setOnClickListener((View.OnClickListener) this);
+        Button button2Send = (Button) findViewById(R.id.button2);
+        button2Send.setOnClickListener((View.OnClickListener) this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button4:
-                sendMessage(mEditTextSendMessage.getText().toString(),"happy");
-                break;
-            case R.id.button3:
-                sendMessage(mEditTextSendMessage.getText().toString(),"neutral");
-                break;
-            case R.id.button2:
-                sendMessage(mEditTextSendMessage.getText().toString(),"sad");
-                break;
-        }
         final WebView wbv = findViewById(R.id.webview);
         String head="http://";
         final String url=head.concat(ip);
+        switch (v.getId()) {
+            case R.id.button4:
+                sendMessage(mEditTextSendMessage.getText().toString(),"happy");
+                wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
+                new CountDownTimer(11000, 1000) { // 5000 = 5 sec
+                    public void onTick(long millisUntilFinished) {
+                    }
+                    public void onFinish() {
+                        MediaPlayer mp=new MediaPlayer();
+                        try {
+                            mp.setDataSource(url.concat(":8004/wav/test_001.wav"));
+                            mp.prepare();
+                            mp.start();
+                            wbv.loadUrl(url.concat(":8002/empty.html"));
+                        }catch(Exception e){e.printStackTrace();}
+                    }
+                }.start();
+                break;
+            case R.id.button3:
+                sendMessage(mEditTextSendMessage.getText().toString(),"neutral");
+                wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
+                new CountDownTimer(11000, 1000) { // 5000 = 5 sec
+                    public void onTick(long millisUntilFinished) {
+                    }
+                    public void onFinish() {
+                        MediaPlayer mp=new MediaPlayer();
+                        try {
+                            mp.setDataSource(url.concat(":8003/wav/test.wav"));
+                            mp.prepare();
+                            mp.start();
+                            wbv.loadUrl(url.concat(":8002/empty.html"));
+                        }catch(Exception e){e.printStackTrace();}
+                    }
+                }.start();
+                break;
+            case R.id.button2:
+                sendMessage(mEditTextSendMessage.getText().toString(),"sad");
+                wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
+                new CountDownTimer(11000, 1000) { // 5000 = 5 sec
+                    public void onTick(long millisUntilFinished) {
+                    }
+                    public void onFinish() {
+                        MediaPlayer mp=new MediaPlayer();
+                        try {
+                            mp.setDataSource(url.concat(":8002/wav/test_001.wav"));
+                            mp.prepare();
+                            mp.start();
+                            wbv.loadUrl(url.concat(":8002/empty.html"));
+                        }catch(Exception e){e.printStackTrace();}
+                    }
+                }.start();
+                break;
+        }
 
-        wbv.loadUrl(url.concat(":8000/v1_newloader.gif"));
-
-        new CountDownTimer(15000, 1000) { // 5000 = 5 sec
-            public void onTick(long millisUntilFinished) {
-            }
-
-            public void onFinish() {
-                MediaPlayer mp=new MediaPlayer();
-                try {
-                    mp.setDataSource(url.concat(":8000/wav/test_001.wav"));
-                    mp.prepare();
-                    mp.start();
-                    wbv.loadUrl(url.concat(":8000/empty.html"));
-                }catch(Exception e){e.printStackTrace();}
-            }
-        }.start();
     }
 
     private void sendMessage(final String msg, final String emo) {
@@ -82,11 +112,11 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
             public void run() {
                 int port=0;
                 if(emo.equals("happy")){
-                    port=9002;
+                    port=9004;
                 }else if(emo.equals("neutral")){
                     port=9003;
                 }else if(emo.equals("sad")){
-                    port=9004;
+                    port=9002;
                 }
 
                 try {
