@@ -30,7 +30,7 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
     WebView web;
     private TextView mTextViewReplyFromServer;
     private EditText mEditTextSendMessage;
-    String ip ="192.168.91.33";
+    String ip ="146.169.163.225";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
             case R.id.button4:
                 sendMessage(mEditTextSendMessage.getText().toString(),"happy");
                 wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
-                new CountDownTimer(11000, 1000) { // 5000 = 5 sec
+                new CountDownTimer(15000, 1000) { // 5000 = 5 sec
                     public void onTick(long millisUntilFinished) {
                     }
                     public void onFinish() {
@@ -71,7 +71,7 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
             case R.id.button3:
                 sendMessage(mEditTextSendMessage.getText().toString(),"neutral");
                 wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
-                new CountDownTimer(11000, 1000) { // 5000 = 5 sec
+                new CountDownTimer(15000, 1000) { // 5000 = 5 sec
                     public void onTick(long millisUntilFinished) {
                     }
                     public void onFinish() {
@@ -88,7 +88,7 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
             case R.id.button2:
                 sendMessage(mEditTextSendMessage.getText().toString(),"sad");
                 wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
-                new CountDownTimer(11000, 1000) { // 5000 = 5 sec
+                new CountDownTimer(15000, 1000) { // 5000 = 5 sec
                     public void onTick(long millisUntilFinished) {
                     }
                     public void onFinish() {
