@@ -30,7 +30,7 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
     WebView web;
     private TextView mTextViewReplyFromServer;
     private EditText mEditTextSendMessage;
-    String ip ="146.169.163.225";
+    String ip ="188.165.235.63";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,51 +53,51 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.button4:
                 sendMessage(mEditTextSendMessage.getText().toString(),"happy");
-                wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
-                new CountDownTimer(15000, 1000) { // 5000 = 5 sec
+                wbv.loadUrl(url.concat("/gaspard/v1_newloader.gif"));
+                new CountDownTimer(14000, 1000) { // 5000 = 5 sec
                     public void onTick(long millisUntilFinished) {
                     }
                     public void onFinish() {
                         MediaPlayer mp=new MediaPlayer();
                         try {
-                            mp.setDataSource(url.concat(":8004/wav/test_001.wav"));
+                            mp.setDataSource(url.concat("/gaspard/merlin/egs/build_your_own_voice/s1/experiments/happy_30_01/test_synthesis/wav/l_test.wav"));
                             mp.prepare();
                             mp.start();
-                            wbv.loadUrl(url.concat(":8002/empty.html"));
+                            wbv.loadUrl(url.concat("/gaspard/empty.html"));
                         }catch(Exception e){e.printStackTrace();}
                     }
                 }.start();
                 break;
             case R.id.button3:
                 sendMessage(mEditTextSendMessage.getText().toString(),"neutral");
-                wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
-                new CountDownTimer(15000, 1000) { // 5000 = 5 sec
+                wbv.loadUrl(url.concat("/gaspard/v1_newloader.gif"));
+                new CountDownTimer(14000, 1000) { // 5000 = 5 sec
                     public void onTick(long millisUntilFinished) {
                     }
                     public void onFinish() {
                         MediaPlayer mp=new MediaPlayer();
                         try {
-                            mp.setDataSource(url.concat(":8003/wav/test.wav"));
+                            mp.setDataSource(url.concat("/gaspard/merlin/egs/slt_arctic/s1/experiments/slt_arctic_full/test_synthesis/wav/test.wav"));
                             mp.prepare();
                             mp.start();
-                            wbv.loadUrl(url.concat(":8002/empty.html"));
+                            wbv.loadUrl(url.concat("/gaspard/empty.html"));
                         }catch(Exception e){e.printStackTrace();}
                     }
                 }.start();
                 break;
             case R.id.button2:
                 sendMessage(mEditTextSendMessage.getText().toString(),"sad");
-                wbv.loadUrl(url.concat(":8002/v1_newloader.gif"));
-                new CountDownTimer(15000, 1000) { // 5000 = 5 sec
+                wbv.loadUrl(url.concat("/gaspard/v1_newloader.gif"));
+                new CountDownTimer(14000, 1000) { // 5000 = 5 sec
                     public void onTick(long millisUntilFinished) {
                     }
                     public void onFinish() {
                         MediaPlayer mp=new MediaPlayer();
                         try {
-                            mp.setDataSource(url.concat(":8002/wav/test_001.wav"));
+                            mp.setDataSource(url.concat("/gaspard/merlin/egs/build_your_own_voice/s1/experiments/sad6/test_synthesis/wav/l_test.wav"));
                             mp.prepare();
                             mp.start();
-                            wbv.loadUrl(url.concat(":8002/empty.html"));
+                            wbv.loadUrl(url.concat("/gaspard/empty.html"));
                         }catch(Exception e){e.printStackTrace();}
                     }
                 }.start();
@@ -112,9 +112,9 @@ public class Play extends AppCompatActivity implements View.OnClickListener{
             public void run() {
                 int port=0;
                 if(emo.equals("happy")){
-                    port=9004;
+                    port=9007;
                 }else if(emo.equals("neutral")){
-                    port=9003;
+                    port=9006;
                 }else if(emo.equals("sad")){
                     port=9002;
                 }
